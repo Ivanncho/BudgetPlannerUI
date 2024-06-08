@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="heading">Budget Planner</div>
+  <table class="bordered">
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Amount</th>
+        <th>Month</th>
+        <th>Year</th>
+        <th>Is Planned</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of combinedData">
+        <td>{{ data.category }}</td>
+        <td>{{ data.amount }}</td>
+        <td>{{ data.month }}</td>
+        <td>{{ data.year }}</td>
+        <td>{{ data.isPlanned }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

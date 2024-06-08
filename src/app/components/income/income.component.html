@@ -1,0 +1,36 @@
+<form (ngSubmit)="onSubmit()">
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Category</mat-label>
+      <mat-select [(ngModel)]="model.category" name="category">
+        <mat-option *ngFor="let cat of categories" [value]="cat">{{ cat }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Amount</mat-label>
+      <input matInput type="number" [(ngModel)]="model.amount" name="amount">
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Month</mat-label>
+      <mat-select [(ngModel)]="model.month" name="month">
+        <mat-option *ngFor="let month of months" [value]="month">{{ month }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Year</mat-label>
+      <input matInput [matDatepicker]="yearPicker" [(ngModel)]="model.year" name="year" placeholder="Year">
+      <mat-datepicker-toggle matSuffix [for]="yearPicker"></mat-datepicker-toggle>
+      <mat-datepicker #yearPicker startView="multi-year" (yearSelected)="onYearSelected($event, yearPicker)"></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-checkbox [(ngModel)]="model.isPlanned" name="isPlanned">Is Planned</mat-checkbox>
+  </div>
+  <button mat-raised-button type="submit">Add Expense</button>
+</form>
